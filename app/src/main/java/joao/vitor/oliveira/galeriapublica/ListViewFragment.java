@@ -2,7 +2,14 @@ package joao.vitor.oliveira.galeriapublica;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.paging.PagingData;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +42,7 @@ public class ListViewFragment extends Fragment {
         return view;
     }
 
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view,savedInstanceState);
         mViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
         ListAdapter listAdapter = new ListAdapter(new ImageDataComparator());
